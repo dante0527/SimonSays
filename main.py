@@ -8,6 +8,10 @@ def clear():
     os.system('cls' if os.name == 'nt' else 'clear')
 
 
+def showHighScore():
+    print(f"High Score: {highscore} by Dante\n")
+
+
 # Simon's turn
 def simon_says():
     global simons_colors
@@ -41,10 +45,11 @@ for i in range(3):
     simons_colors += random.choice(colors)
 
 # Game start
-print("New Game")
-time.sleep(2)
 clear()
-print(f"High Score: {highscore} by {highname}")
+print("New Game")
+time.sleep(1)
+clear()
+showHighScore()
 time.sleep(2)
 clear()
 
