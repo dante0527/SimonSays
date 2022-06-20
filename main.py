@@ -8,8 +8,17 @@ def clear():
     os.system('cls' if os.name == 'nt' else 'clear')
 
 
+def clearWithScore():
+    os.system('cls' if os.name == 'nt' else 'clear')
+    showScore()
+
+
 def showHighScore():
-    print(f"High Score: {highscore} by Dante\n")
+    print(f"High Score: {highscore} by Dante")
+
+
+def showScore():
+    print(f"Score: {score}")
 
 
 # Simon's turn
@@ -19,11 +28,11 @@ def simon_says():
     for color in simons_colors:
         print("Simon says:")
         time.sleep(0.1)
-        clear()
+        clearWithScore()
 
         print(f"Simon says: {color}")
         time.sleep(1)
-        clear()
+        clearWithScore()
 
     return simons_colors
 
@@ -46,19 +55,17 @@ for i in range(3):
 
 # Game start
 clear()
-print("New Game")
-time.sleep(1)
-clear()
 showHighScore()
 time.sleep(2)
-clear()
+clearWithScore()
+time.sleep(2)
 
 while True:
     sequence = ''.join(simon_says())
     if user_turn() == sequence:
         score += 1
         level += 1
-        clear()
+        clearWithScore()
     else:
         if score > highscore:
             clear()
@@ -68,5 +75,7 @@ while True:
             break
         else:
             clear()
-            print(f"GAME OVER\nScore: {score}\nHigh Score: {highscore}")
+            print("GAME OVER")
+            showHighScore()
+            print(f"Score: {score}")
             break
