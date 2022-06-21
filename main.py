@@ -1,7 +1,9 @@
 import os
 import random
 import time
+
 from highscore import *
+
 
 # clear terminal
 def clear():
@@ -14,7 +16,7 @@ def clearWithScore():
 
 
 def showHighScore():
-    print(f"High Score: {highscore} by Dante")
+    print(f"High Score: {highscore} by {highname}")
 
 
 def showScore():
