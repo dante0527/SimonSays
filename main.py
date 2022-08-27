@@ -49,7 +49,7 @@ def simonSays():
 
 
 # Your Turn
-def user_turn():
+def userTurn():
     turn = input("Your turn:\n").upper()
     return turn
 
@@ -81,7 +81,7 @@ while True:
     sequence = ''.join(simonSays())
 
     # Correct Sequence from Player
-    if user_turn() == sequence:
+    if userTurn() == sequence:
 
         # Increase Score
         score += 1
