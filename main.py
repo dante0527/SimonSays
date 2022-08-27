@@ -25,7 +25,7 @@ def showScore():
 
 
 # Simon's turn
-def simon_says():
+def simonSays():
     global simons_colors
 
     # Add Color to Simon's Sequence
@@ -78,7 +78,7 @@ time.sleep(2)
 while True:
 
     # Add Color to Sequence
-    sequence = ''.join(simon_says())
+    sequence = ''.join(simonSays())
 
     # Correct Sequence from Player
     if user_turn() == sequence:
