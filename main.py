@@ -24,28 +24,10 @@ def showScore():
     print(f"Score: {score}")
 
 
-# Simon's turn
+# Add Color to Simon's Sequence
 def simonSays():
     global simons_colors
-
-    # Add Color to Simon's Sequence
     simons_colors += random.choice(colors)
-
-    # Show One Color at a Time
-    for color in simons_colors:
-
-        # Pause Between Colors
-        print("Simon says:")
-        time.sleep(0.1)
-        clearWithScore()
-
-        # Display Next Color
-        print(f"Simon says: {color}")
-        time.sleep(1)
-        clearWithScore()
-
-    # Return Colors as List
-    return simons_colors
 
 
 # Your Turn
@@ -78,7 +60,23 @@ time.sleep(2)
 while True:
 
     # Add Color to Sequence
-    sequence = ''.join(simonSays())
+    simonSays()
+
+    # Combine Simon's Colors into Sequence
+    sequence = ''.join(simons_colors)
+
+    # Show One Color at a Time
+    for color in simons_colors:
+
+        # Pause Between Colors
+        print("Simon says:")
+        time.sleep(0.1)
+        clearWithScore()
+
+        # Display Next Color
+        print(f"Simon says: {color}")
+        time.sleep(1)
+        clearWithScore()
 
     # Correct Sequence from Player
     if userTurn() == sequence:
