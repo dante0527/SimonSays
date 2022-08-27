@@ -1,6 +1,10 @@
 # SimonSays
-Simon Says terminal game
+# #Simon Says terminal game
 
-Default High Score is mine with a score of 10
+Simon will display a sequence of colors: R, G, B, or Y
+
+You must repeat this sequence to Simon to increase your score
+
+Default High Score is the high score from my computer
 
 Once you beat my score, a new one will be set

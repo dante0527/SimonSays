@@ -1,24 +1,25 @@
 import os
 import random
 import time
-
 from highscore import *
 
-
-# clear terminal
+# Clear Terminal
 def clear():
     os.system('cls' if os.name == 'nt' else 'clear')
 
 
+# Clear Screen and Show Current Score
 def clearWithScore():
     os.system('cls' if os.name == 'nt' else 'clear')
     showScore()
 
 
+# Show High Score
 def showHighScore():
     print(f"High Score: {highscore} by {highname}")
 
 
+# Show Player's Current Score
 def showScore():
     print(f"Score: {score}")
 
@@ -26,58 +27,93 @@ def showScore():
 # Simon's turn
 def simon_says():
     global simons_colors
+
+    # Add Color to Simon's Sequence
     simons_colors += random.choice(colors)
+
+    # Show One Color at a Time
     for color in simons_colors:
+
+        # Pause Between Colors
         print("Simon says:")
         time.sleep(0.1)
         clearWithScore()
 
+        # Display Next Color
         print(f"Simon says: {color}")
         time.sleep(1)
         clearWithScore()
 
+    # Return Colors as List
     return simons_colors
 
 
-# Your turn
+# Your Turn
 def user_turn():
     turn = input("Your turn:\n").upper()
     return turn
 
 
-# Game info
+# Possible Colors in Sequence
 colors = ('R', 'G', 'B', 'Y')
+
+# Simon's Sequence
 simons_colors = []
-level = 1
+
+# Tracks Player's Score
 score = 0
 
-# Initialize game
-for i in range(3):
+# Initialize Simon's Sequence
+for i in range(2):
     simons_colors += random.choice(colors)
 
-# Game start
+# Game Start
 clear()
 showHighScore()
 time.sleep(2)
 clearWithScore()
 time.sleep(2)
 
+# Gameplay Loop
 while True:
+
+    # Add Color to Sequence
     sequence = ''.join(simon_says())
+
+    # Correct Sequence from Player
     if user_turn() == sequence:
+
+        # Increase Score
         score += 1
-        level += 1
         clearWithScore()
+
+    # Game Over
     else:
+
+        # New High Score
         if score > highscore:
+
+            # Display High Score Message
             clear()
-            print(f"GAME OVER\nNew High Score: {score}!\nEnter your name: ")
-            name = input()
+            print(f"GAME OVER\nNew High Score: {score}!")
+
+            # Get player's name
+            name = input("Enter your name: ")
+
+            # Save new high score
             setHighScore(name, str(score))
             break
+        
+        # No New High Score
         else:
+            
+            # Display Game Over Message
             clear()
             print("GAME OVER")
+
+            # Show High Score
             showHighScore()
+
+            # Show Player Score
             print(f"Score: {score}")
             break
