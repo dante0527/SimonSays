@@ -19,7 +19,7 @@ def showScore():
 
 
 # Add Color to Simon's Sequence
-def simonSays():
+def addColor():
     global simons_colors
     simons_colors += random.choice(colors)
 
@@ -57,7 +57,7 @@ time.sleep(2)
 while True:
 
     # Add Color to Sequence
-    simonSays()
+    addColor()
 
     # Combine Simon's Colors into Sequence
     sequence = ''.join(simons_colors)
