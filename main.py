@@ -8,12 +8,6 @@ def clear():
     os.system('cls' if os.name == 'nt' else 'clear')
 
 
-# Clear Screen and Show Current Score
-def clearWithScore():
-    os.system('cls' if os.name == 'nt' else 'clear')
-    showScore()
-
-
 # Show High Score
 def showHighScore():
     print(f"High Score: {highscore} by {highname}")
@@ -49,11 +43,14 @@ score = 0
 for i in range(2):
     simons_colors += random.choice(colors)
 
-# Game Start
+# Show High Score
 clear()
 showHighScore()
 time.sleep(2)
-clearWithScore()
+
+# Show Player Score
+clear()
+showScore()
 time.sleep(2)
 
 # Gameplay Loop
@@ -65,25 +62,34 @@ while True:
     # Combine Simon's Colors into Sequence
     sequence = ''.join(simons_colors)
 
+    # Show Simon before printing sequence
+    print("Simon says:")
+    time.sleep(1)
+    clear()
+    showScore()
+
     # Show One Color at a Time
     for color in simons_colors:
 
         # Pause Between Colors
         print("Simon says:")
         time.sleep(0.1)
-        clearWithScore()
+        clear()
+        showScore()
 
         # Display Next Color
         print(f"Simon says: {color}")
         time.sleep(1)
-        clearWithScore()
+        clear()
+        showScore()
 
     # Correct Sequence from Player
     if userTurn() == sequence:
 
         # Increase Score
         score += 1
-        clearWithScore()
+        clear()
+        showScore()
 
     # Game Over
     else:
