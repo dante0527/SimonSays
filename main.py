@@ -41,7 +41,7 @@ score = 0
 
 # Initialize Simon's Sequence
 for i in range(2):
-    simons_colors += random.choice(colors)
+    addColor()
 
 # Show High Score
 clear()
