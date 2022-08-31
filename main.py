@@ -1,7 +1,6 @@
 import os
 import random
 import time
-from highscore import *
 
 # Clear Terminal
 def clear():
@@ -29,6 +28,32 @@ def userTurn():
     turn = input("Your turn:\n").upper()
     return turn
 
+# Get High Score as Number
+def getHighScore():
+    with open("highscore.txt", "r") as hs:
+        stats = hs.readlines()
+    return stats
+
+
+# Set High Score and Name
+def setHighScore(name, score):
+    with open("highscore.txt", "w") as hs:
+        hs.write(name)
+        hs.write("\n")
+        hs.write(score)
+
+# Create highscore file if none
+try:
+    f = open("highscore.txt")
+    f.close("highscore.txt")
+except:
+    with open("highscore.txt", "w") as f:
+        f.write("null\n0")
+
+# High Score Values
+record = getHighScore()
+highname = record[0]
+highscore = int(record[1])
 
 # Possible Colors in Sequence
 colors = ('R', 'G', 'B', 'Y')
