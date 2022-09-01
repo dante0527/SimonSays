@@ -42,8 +42,7 @@ def setHighScore(name, score):
 
 # Create highscore file if none
 try:
-    f = open("highscore.txt")
-    f.close("highscore.txt")
+    getHighScore()
 except:
     with open("highscore.txt", "w") as f:
         f.write("null\n0")
