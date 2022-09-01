@@ -38,9 +38,7 @@ def getHighScore():
 # Set High Score and Name
 def setHighScore(name, score):
     with open("highscore.txt", "w") as hs:
-        hs.write(name)
-        hs.write("\n")
-        hs.write(score)
+        hs.write(f"{name}\n{score}")
 
 # Create highscore file if none
 try:
